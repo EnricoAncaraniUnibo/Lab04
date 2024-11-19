@@ -15,6 +15,10 @@ public class BasicArm {
         return grabbing;
     }
 
+    public String getId() {
+        return id;
+    }
+    
     public void pickUp() {
         this.grabbing = true;
     }

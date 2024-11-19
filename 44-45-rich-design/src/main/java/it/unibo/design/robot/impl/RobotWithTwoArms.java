@@ -11,6 +11,8 @@ public class RobotWithTwoArms extends BaseRobot implements RobotWithArms{
     private final BasicArm ba2;
     private int items;
     private final static double TRANSPORT_OBJECT_CONSUMPTION=0.1;
+    private final static double OBJECT_PICKUP_CONSUPTION=0.2;
+    private final static double OBJECT_DROPDOWN_CONSUPTION=0.1;
 
     public RobotWithTwoArms(final String name) {
         super(name);
@@ -31,11 +33,13 @@ public class RobotWithTwoArms extends BaseRobot implements RobotWithArms{
         if(isBatteryEnough(ba1.getConsumptionForPickUp()) && !ba1.isGrabbing()) {
             ba1.pickUp();
             items++;
+            super.consumeBattery(OBJECT_PICKUP_CONSUPTION);
             return true;
         }
         if(isBatteryEnough(ba2.getConsumptionForPickUp()) && !ba2.isGrabbing()) {
             ba2.pickUp();
             items++;
+            super.consumeBattery(OBJECT_PICKUP_CONSUPTION);
             return true;
         }
         return false;
@@ -49,11 +53,13 @@ public class RobotWithTwoArms extends BaseRobot implements RobotWithArms{
         if(isBatteryEnough(ba1.getConsumptionForPickUp()) && ba1.isGrabbing()) {
             ba1.dropDown();
             items--;
+            super.consumeBattery(OBJECT_DROPDOWN_CONSUPTION);
             return true;
         }
         if(isBatteryEnough(ba2.getConsumptionForPickUp()) && ba2.isGrabbing()) {
             ba2.dropDown();
             items--;
+            super.consumeBattery(OBJECT_DROPDOWN_CONSUPTION);
             return true;
         }
         return false;

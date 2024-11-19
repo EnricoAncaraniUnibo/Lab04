@@ -1,15 +1,15 @@
 package it.unibo.design.robot.api;
 
 public interface Component {
-    boolean turnOn();
+    void turnOn();
 
-    boolean turnOff();
+    void turnOff();
 
     boolean isActive();
 
-    RobotComponibile getRobot();
+    ComponibleRobotInterface getRobot();
 
-    void connectRobot();
+    void connectRobot(ComponibleRobotInterface robot);
 
     void disconnectRobot();
 

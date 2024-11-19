@@ -13,5 +13,5 @@ public interface RobotPart {
 
     public void use();
 
-    public void getEnergyConsumtion();
+    public ComposableRobot getRobot();
 }

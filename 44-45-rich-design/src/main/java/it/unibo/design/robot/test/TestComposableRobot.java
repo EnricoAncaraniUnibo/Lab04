@@ -1,5 +1,13 @@
 package it.unibo.design.robot.test;
 
+import it.unibo.design.robot.api.ComposableRobot;
+import it.unibo.design.robot.api.RobotPart;
+import it.unibo.design.robot.impl.AtomicBattery;
+import it.unibo.design.robot.impl.BorderNavigator;
+import it.unibo.design.robot.impl.CommandableRobotPart;
+import it.unibo.design.robot.impl.RobotArm;
+import it.unibo.design.robot.impl.SimpleComposableRobot;
+
 /**
  * Utility class for testing composable robots
  */
@@ -10,27 +18,21 @@ public final class TestComposableRobot {
     private TestComposableRobot() { }
 
     public static void main(final String[] args) {
-        /*
-         * Uncomment the method parts by moving the comment-ending token
         final ComposableRobot r0 = new SimpleComposableRobot("Evangelion Unit 01");
         final RobotPart navi = new BorderNavigator();
         final RobotPart battery = new AtomicBattery();
-        final CommandableRobotPart arm1 = new RobotArm();
+        final RobotPart arm1 = new RobotArm();
         final CommandableRobotPart arm2 = new RobotArm();
-         */
-        /*
-         * Component connection
+
         r0.attachComponent(navi);
         r0.attachComponent(battery);
         r0.attachComponent(arm1);
         r0.attachComponent(arm2);
-         */
-        /*
-         * Turn on components
+
         navi.turnOn();
         arm1.turnOn();
         arm2.turnOn();
-         */
+
         /*
          * Run some cycles
         for (int i = 0; i < CYCLES; i++) {

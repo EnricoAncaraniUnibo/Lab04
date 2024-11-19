@@ -39,4 +39,9 @@ public abstract class Component implements RobotPart{
         this.robot = null;
         turnOff();
     }
+
+    @Override
+    public ComposableRobot getRobot() {
+        return robot;
+    }
 }

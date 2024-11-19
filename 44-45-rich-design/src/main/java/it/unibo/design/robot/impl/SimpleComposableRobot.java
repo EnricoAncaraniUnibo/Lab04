@@ -14,7 +14,7 @@ public class SimpleComposableRobot extends BaseRobot implements ComposableRobot{
     }
 
     @Override
-    public void addPart(RobotPart part) {
+    public void attachComponent(RobotPart part) {
         components.add(part);
     }
 
@@ -34,5 +34,4 @@ public class SimpleComposableRobot extends BaseRobot implements ComposableRobot{
             robotPart.use();
         }
     }
-    
 }

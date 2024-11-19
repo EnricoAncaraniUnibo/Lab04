@@ -18,6 +18,10 @@ public class BorderNavigator extends Component{
                             finitoIntro = true;
                         }
                     }
+                    else {
+                        finitoIntro =true;
+                        finito = true;
+                    }
                 }
                 finitoIntro = false;
                 while (!finitoIntro) {
@@ -25,6 +29,9 @@ public class BorderNavigator extends Component{
                         if(!getRobot().moveRight()) {
                             finitoIntro = true;
                         }
+                    }else {
+                        finitoIntro =true;
+                        finito = true;
                     }
                 }
                 finitoIntro = false;
@@ -33,6 +40,9 @@ public class BorderNavigator extends Component{
                         if(!getRobot().moveDown()) {
                             finitoIntro = true;
                         }
+                    }else {
+                        finitoIntro =true;
+                        finito = true;
                     }
                 }
                 finitoIntro = false;
@@ -41,6 +51,9 @@ public class BorderNavigator extends Component{
                         if(!getRobot().moveLeft()) {
                             finitoIntro = true;
                         }
+                    }else {
+                        finitoIntro =true;
+                        finito = true;
                     }
                 }
             }

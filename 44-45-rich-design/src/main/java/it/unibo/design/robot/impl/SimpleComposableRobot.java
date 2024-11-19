@@ -1,6 +1,7 @@
 package it.unibo.design.robot.impl;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import it.unibo.design.robot.api.ComposableRobot;
 import it.unibo.design.robot.api.RobotPart;
@@ -16,10 +17,12 @@ public class SimpleComposableRobot extends BaseRobot implements ComposableRobot{
     @Override
     public void attachComponent(RobotPart part) {
         components.add(part);
+        part.connect(this);
     }
 
     @Override
     public void detachComponent(RobotPart part) {
+        part.disconnect();
         components.remove(part);
     }
 
@@ -32,10 +35,22 @@ public class SimpleComposableRobot extends BaseRobot implements ComposableRobot{
     public void useAll() {
         for (RobotPart robotPart : components) {
             robotPart.use();
-            if(robotPart instanceof RobotArm) {
-                RobotArm arm = (RobotArm)robotPart;
-                consumeBattery(arm.getConsumptionForAction());
+        }
+    }
+
+    @Override
+    public void consume(final double amount) {
+        super.consumeBattery(amount);
+    }
+
+    @Override
+    protected double getBatteryRequirementForMovement() {
+        double somma = 0;
+        for (RobotPart robotPart : components) {
+            if(robotPart instanceof RobotArm a) {
+                somma = somma + a.getConsumptionForMoving();
             }
         }
+        return somma;
     }
 }

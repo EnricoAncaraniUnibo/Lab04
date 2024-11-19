@@ -1,5 +1,7 @@
 package it.unibo.design.robot.api;
 
+import it.unibo.design.robot.impl.SimpleComposableRobot;
+
 public interface RobotPart {
     public boolean isActive();
 
@@ -7,11 +9,11 @@ public interface RobotPart {
 
     public void turnOff();
 
-    public void connect(ComposableRobot robot);
+    public void connect(SimpleComposableRobot robot);
 
     public void disconnect();
 
     public void use();
 
-    public ComposableRobot getRobot();
+    public SimpleComposableRobot getRobot();
 }

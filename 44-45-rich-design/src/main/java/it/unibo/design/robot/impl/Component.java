@@ -1,11 +1,9 @@
 package it.unibo.design.robot.impl;
-
-import it.unibo.design.robot.api.ComposableRobot;
 import it.unibo.design.robot.api.RobotPart;
 
 public abstract class Component implements RobotPart{
     private boolean status;
-    private ComposableRobot robot;
+    private SimpleComposableRobot robot;
 
     public Component() {
         status = false;
@@ -30,7 +28,7 @@ public abstract class Component implements RobotPart{
     }
 
     @Override
-    public void connect(ComposableRobot robot) {
+    public void connect(SimpleComposableRobot robot) {
         this.robot = robot;
     }
 
@@ -41,7 +39,7 @@ public abstract class Component implements RobotPart{
     }
 
     @Override
-    public ComposableRobot getRobot() {
+    public SimpleComposableRobot getRobot() {
         return robot;
     }
 }

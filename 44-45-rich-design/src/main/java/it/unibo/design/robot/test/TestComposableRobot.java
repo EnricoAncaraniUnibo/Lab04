@@ -40,13 +40,13 @@ public final class TestComposableRobot {
             }
             arm1.sendCommand(arm1.availableCommands()[i % arm1.availableCommands().length]);
             arm2.sendCommand(arm2.availableCommands()[i % arm2.availableCommands().length]);
-            r0.doCycle();
+            r0.useAll();
         }
 
         r0.detachComponent(arm1);
         r0.detachComponent(arm2);
 
-        r0.doCycle();
-        r0.doCycle();
+        r0.useAll();
+        r0.useAll();
     }
 }

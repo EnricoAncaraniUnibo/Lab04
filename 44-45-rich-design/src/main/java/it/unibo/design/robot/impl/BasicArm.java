@@ -11,6 +11,10 @@ public class BasicArm {
         this.grabbing = false;
     }
 
+    public String getId() {
+        return id;
+    }
+
     public boolean isGrabbing() {
         return grabbing;
     }

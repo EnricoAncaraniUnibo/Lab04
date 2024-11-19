@@ -2,9 +2,9 @@ package it.unibo.design.robot.impl;
 
 public class RobotArm extends CommandableRobotPart{
     private boolean grabbing;
-    private final static double COST_TO_DROP = 0.1;
-    private final static double COST_TO_PICK = 0.2;
+    private final static double COST_TO_ACTION = 0.2;
     private final static double COST_TO_MOVE = 0.1;
+    private final String[] availableCommands = {"pick", "down"};
 
     @Override
     public void use() {
@@ -14,7 +14,7 @@ public class RobotArm extends CommandableRobotPart{
         }   
     }
 
-    public void useCommand(String command) {
+    public void sendCommand(String command) {
         if(this.isActive()) {
             if(command == "pick") {
                 pickUp();
@@ -30,19 +30,19 @@ public class RobotArm extends CommandableRobotPart{
     }
 
     private void pickUp() {
-        this.grabbing = true;
+        if(this.getRobot().getBatteryLevel()>0.2) {
+            this.grabbing = true;
+        }
     }
 
     private void dropDown() {
-        this.grabbing = false;
+        if(this.getRobot().getBatteryLevel()>0.2) {
+            this.grabbing = false;
+        }
     }
 
-    public double getConsumptionForPickUp() {
-        return COST_TO_PICK;
-    }
-
-    public double getConsumptionForDropDown() {
-        return COST_TO_DROP;
+    public double getConsumptionForAction() {
+        return COST_TO_ACTION;
     }
 
     public double getConsumptionForMoving() {
@@ -51,5 +51,10 @@ public class RobotArm extends CommandableRobotPart{
         } else {
             return 0;
         }
+    }
+
+    @Override
+    public String[] availableCommands() {
+        return availableCommands;
     }
 }

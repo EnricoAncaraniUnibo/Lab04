@@ -5,7 +5,9 @@ public class AtomicBattery extends Component{
     @Override
     public void use() {
         if(this.isActive()) {
-            this.getRobot().recharge();
+            if(this.getRobot().getBatteryLevel()<BaseRobot.BATTERY_FULL/2) {
+                this.getRobot().recharge();
+            }
         }
     }
     

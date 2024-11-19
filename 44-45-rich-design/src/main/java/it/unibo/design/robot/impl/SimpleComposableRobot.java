@@ -19,7 +19,7 @@ public class SimpleComposableRobot extends BaseRobot implements ComposableRobot{
     }
 
     @Override
-    public void removePart(RobotPart part) {
+    public void detachComponent(RobotPart part) {
         components.remove(part);
     }
 
@@ -32,6 +32,10 @@ public class SimpleComposableRobot extends BaseRobot implements ComposableRobot{
     public void useAll() {
         for (RobotPart robotPart : components) {
             robotPart.use();
+            if(robotPart instanceof RobotArm) {
+                RobotArm arm = (RobotArm)robotPart;
+                consumeBattery(arm.getConsumptionForAction());
+            }
         }
     }
 }

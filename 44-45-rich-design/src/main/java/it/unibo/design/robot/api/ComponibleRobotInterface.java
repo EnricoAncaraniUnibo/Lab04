@@ -1,9 +1,11 @@
 package it.unibo.design.robot.api;
 
-public interface ComponibleRobotInterface extends RobotWithArms{
-    void allActivated();
+import it.unibo.design.robot.impl.ComponentImp;
+
+public interface ComponibleRobotInterface {
+    void allActivatedAtOnce();
 
     Object[] getComponents();
 
-    void addComponent(Component component);
+    void addComponent(ComponentImp component);
 }

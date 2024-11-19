@@ -1,5 +1,7 @@
 package it.unibo.design.robot.api;
 
+import it.unibo.design.robot.impl.BaseRobot;
+
 public interface Component {
     void turnOn();
 
@@ -7,9 +9,9 @@ public interface Component {
 
     boolean isActive();
 
-    ComponibleRobotInterface getRobot();
+    BaseRobot getRobot();
 
-    void connectRobot(ComponibleRobotInterface robot);
+    void connectRobot(BaseRobot robot);
 
     void disconnectRobot();
 

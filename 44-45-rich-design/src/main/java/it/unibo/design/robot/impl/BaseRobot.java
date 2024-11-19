@@ -35,7 +35,7 @@ public class BaseRobot implements Robot {
      * 
      * @param amount
      */
-    protected void consumeBattery(final double amount) {
+    public void consumeBattery(final double amount) {
         if (batteryLevel >= amount) {
             this.batteryLevel -= amount;
         } else {

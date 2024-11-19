@@ -1,22 +1,16 @@
 package it.unibo.design.robot.impl;
 
-import it.unibo.design.robot.api.Component;
-import it.unibo.design.robot.api.ComponibleRobotInterface;
-
-public class AtomicBattery implements Component{
+public class AtomicBattery extends ComponentImp{
    
-
     public AtomicBattery() {
-        this.active = false;
-        robot = null;
+        super();
     }
-
-    
 
     public void use() {
-        if(robot != null && robot.getBatteryLevel()<50) {
-            robot.recharge();
+        if(this.isActive()) {
+            if(getRobot() != null && getRobot().getBatteryLevel()<50) {
+                getRobot().recharge();
+            }
         }
     }
-    
 }

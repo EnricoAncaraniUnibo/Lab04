@@ -1,12 +1,16 @@
 package it.unibo.design.robot.impl;
 
 import it.unibo.design.robot.api.Component;
-import it.unibo.design.robot.api.ComponibleRobotInterface;
 
-public class ComponentImp implements Component{
+public abstract class ComponentImp implements Component{
     private boolean active;
-    private ComponibleRobotInterface robot;
+    private BaseRobot robot;
     private final static double BATTERY_CONSUMTION = 0.1;
+
+    public ComponentImp() {
+        this.active = false;
+        robot = null;
+    }
 
     @Override
     public void turnOn() {
@@ -26,23 +30,25 @@ public class ComponentImp implements Component{
     }
 
     @Override
-    public ComponibleRobotInterface getRobot() {
+    public BaseRobot getRobot() {
         return robot;
     }
 
     @Override
-    public void connectRobot(ComponibleRobotInterface robot) {
+    public void connectRobot(BaseRobot robot) {
         this.robot = robot;
     }
 
     @Override
     public void disconnectRobot() {
         this.robot = null;
+        this.active = false;
     }
 
     @Override
     public double getBatteryConsumption() {
         return BATTERY_CONSUMTION;
     }
-    
+
+    public abstract void use();
 }

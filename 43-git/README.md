@@ -7,23 +7,26 @@ per confrontarlo con le soluzioni.
 ### Si crei una nuova directory
 
 ### Si inizializzi un repository Git dentro la cartella suddetta.
-
+git init
 ### Si osservi lo stato del repository
-
+git status
 ### Si scriva un file `HelloWorld.java` contenente un `main` con una stampa a video e si osservi il contenuto del repository
-
+git status
 ### Si aggiunga `HelloWorld.java` allo stage, e si osservi lo stato del repository
-
+git add HelloWorld.java
 ### Si crei il primo commit, con messaggio ragionevole. Se necessario, si configuri nome utente ed email di git usando i dati dell'account istituzionale.
-
+git commit -m 1.0
 ### Si compili il file Java e si verifichi lo stato del repository
-
+git status
 ### Si noti che c'è un file rigenerabile (`HelloWorld.class`). Si costruisca una lista di file ignorati che ignori tutti i file con estensione `.class`
-
+creo il .gitignore, ci metto dentro *.class
 ### Si osservi lo stato del repository
-
+git status
 ### Si crei un nuovo commit che tracci il la ignore list, aggiungendo allo stage i file necessari. Si osservi sempre lo stato del repository dopo l'esecuzione di un comando
-
+git add .gitignore
+git status
+git commit -m aggiuntogitIgnore
+git status
 ### Si gestiscano i caratteri di fine linea in modo appropriato, creando un file `.gitattributes`
 
 ### Si osservi la storia del repository usando `git log --all --graph`
